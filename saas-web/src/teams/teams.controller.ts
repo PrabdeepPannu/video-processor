@@ -23,4 +23,13 @@ export class TeamsController {
   async getById(@Param("id") id: number) {
     return await this.teamsRepository.getById(id);
   }
+
+  @Get('league/:league')
+  @ApiOperation({ summary: 'Retrieve team entities by League' })
+  @ApiParam({ name: 'league', description: 'The League of the Players', required: true, type: String })
+  @ApiResponse({ status: 200, description: 'A list of Player entities belonging to the given League' })
+  async getByLeague(@Param('league') league: string) {
+    return await this.teamsRepository.getByLeague(league);
+  }
+  
 }

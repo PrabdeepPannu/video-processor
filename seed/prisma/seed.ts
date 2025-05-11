@@ -1,24 +1,19 @@
 import { PrismaClient } from '@prisma/client';
-import { readFileSync, readdirSync } from 'fs';
-import path from 'path';
+import { readFileSync } from 'fs';
 const prisma = new PrismaClient();
 
 function readJsonFile(fileName: string): any {
-  const filePath = path.join(__dirname, 'data', fileName);
-  const fileContent = readFileSync(filePath, 'utf-8');
-  return JSON.parse(fileContent);
-}
-
-async function insertVenuesFromJson(fileName: string) {
-  console.log('Starting to seed venues from JSON ...');
-  const venuesData = readJsonFile(fileName);
-  const venues = venuesData.map((venue: any) => ({
-    name: venue.name,
-    location: venue.location,
-    capacity: venue.capacity
-  }));
-  await prisma.venue.createMany({ data: venues });
-  console.log('Finished seeding venues.');
+  try {
+    if (!fileName || typeof fileName !== 'string') {
+      throw new Error(`Invalid file name: ${fileName}`);
+    }
+    const filePath = `/opt/app/prisma/data/${fileName}`;
+    const fileContent = readFileSync(filePath, 'utf-8');
+    return JSON.parse(fileContent);
+  } catch (error) {
+    console.error(`Error reading file ${fileName}:`, error.message);
+    return null;
+  }
 }
 
 async function insertGamesFromJson(fileName: string) {
@@ -36,37 +31,45 @@ async function insertGamesFromJson(fileName: string) {
   console.log('Finished seeding games.');
 }
 
-
-async function insertPlayersFromJson(directory: string) {
-  console.log('Starting to seed players from JSON files ...');
-  const files = readdirSync(directory);
-  for (const file of files) {
-    const playersData = readJsonFile(path.join(directory, file));
-    const players = Object.entries(playersData).map(([name, jersey_number]) => ({
-      name,
-      jerseyNumber: Number(jersey_number),
-      position: 'Unknown',
-      is_active: true
-    }));
-    await prisma.player.createMany({ data: players });
-    console.log(`Finished seeding players from ${file}.`);
-  }
+async function insertVenuesFromJson(fileName: string) {
+  console.log('Starting to seed venues from JSON ...');
+  const venuesData = readJsonFile(fileName);
+  const venues = venuesData.map((venue: any) => ({
+    name: venue.name,
+    location: venue.location,
+    capacity: venue.capacity
+  }));
+  await prisma.venue.createMany({ data: venues });
+  console.log('Finished seeding venues.');
 }
 
-async function insertTeamsFromJson(directory: string) {
-  console.log('Starting to seed teams from JSON files ...');
-  const files = readdirSync(directory);
-  for (const file of files) {
-    const teamsData = readJsonFile(path.join(directory, file));
-    const teams = Object.keys(teamsData).map((teamName) => ({
-      name: teamName,
-      league: 'Unknown'
-    }));
-    await prisma.team.createMany({ data: teams });
-    console.log(`Finished seeding teams from ${file}.`);
-  }
+async function insertTeamsFromJson(fileName: string) {
+  console.log('Starting to seed teams from JSON ...');
+  const teamsData = readJsonFile(fileName);
+
+  const teams = teamsData.map((team: any) => ({
+    name: team.name,
+    league: team.sport,
+  }));
+
+  await prisma.team.createMany({ data: teams });
+  console.log('Finished seeding teams.');
 }
 
+async function insertPlayersFromJson(fileName: string) {
+  console.log('Starting to seed players from JSON ...');
+  const playersData = readJsonFile(fileName);
+
+  const players = playersData.map((player: any) => ({
+    name: player.name,
+    jerseyNumber: Number(player.number),
+    position: player.position || 'Unknown',
+    team_id: Number(player.team_id),
+  }));
+
+  await prisma.player.createMany({ data: players });
+  console.log('Finished seeding players.');
+}
 
 async function insertVideosFromJson(fileName: string) {
   const videosData = readJsonFile(fileName);
@@ -88,11 +91,11 @@ async function insertVideosFromJson(fileName: string) {
 
 async function main() {
   console.log(`Start seeding ...`);
-  await insertVenuesFromJson('testData/venue/venue.json');
-  await insertTeamsFromJson('testData/teams');
-  await insertPlayersFromJson('testData/teams');
-  await insertGamesFromJson('testData/game.json');
-  await insertVideosFromJson("testData/videos.json");
+  await insertVenuesFromJson('venue.json');
+  await insertTeamsFromJson('teams.json');
+  await insertGamesFromJson('game.json');
+  await insertVideosFromJson('videos.json');
+  await insertPlayersFromJson('players.json');
   console.log(`Seeding finished.`);
 }
 

@@ -11,4 +11,12 @@ export class PlayersRepository {
   async getById(id: number) {
     return await prisma.player.findUnique({ where: { id } });
   }
+
+  async getByName(name: string) {
+    return await prisma.player.findMany({ where: { name } });
+  }
+
+  async getByJerseyNumber(jerseyNumber: number) {
+    return await prisma.player.findMany({ where: { jerseyNumber } });
+  }
 }

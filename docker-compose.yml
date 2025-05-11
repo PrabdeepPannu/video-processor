@@ -1,0 +1,89 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/.docker-conf/thc-cbh/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - cbh_thc_network
+
+  redis:
+    image: redis:7
+    ports:
+      - 6379:6379
+    networks:
+      - cbh_thc_network
+    command: [ "redis-server", "--appendonly", "yes" ]
+
+  seed:
+    build:
+      context: ./seed/
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - cbh_thc_network
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+    command: "./start.sh"
+
+  saas-web:
+    build:
+      context: ./saas-web/
+      dockerfile: Dockerfile
+    ports:
+      - 3003:3000
+    depends_on:
+      - db
+      - redis
+    networks:
+      - cbh_thc_network
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres # Updated to reflect new db name
+      - REDIS_URL=redis://redis:6379
+    command: "./start.sh"
+
+
+    # video-processor:
+    #   build:
+    #     context: ./saas-processor/
+    #     dockerfile: Dockerfile
+    #   ports:
+    #     - 3002:3000
+    #   depends_on:
+    #     - db
+    #     - redis
+    #   networks:
+    #     - cbh_thc_network
+    #   environment:
+    #     - DATABASE_URL=postgres://postgres:postgres@db:5432/video_processor  # Updated to reflect new db name
+    #     - REDIS_URL=redis://redis:6379
+    #   command: "./start.sh"
+
+    # saas-client:
+    #   build:
+    #     context: ./saas-client/
+    #     dockerfile: Dockerfile
+    #   ports:
+    #     - 3000:3000
+    #   depends_on:
+    #     - db
+    #     - redis
+    #   networks:
+    #     - cbh_thc_network
+    #   environment:
+    #     - DATABASE_URL=postgres://postgres:postgres@db:5432/video_processor  # Updated to reflect new db name
+    #     - REDIS_URL=redis://redis:6379
+    #   command: "./start.sh"
+
+networks:
+  cbh_thc_network:
+    driver: bridge
