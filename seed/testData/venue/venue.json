@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Scotiabank Saddledome",
+      "location": "Calgary, Alberta",
+      "capacity": 19289
+    },
+    {
+      "name": "Rogers Place",
+      "location": "Edmonton, Alberta",
+      "capacity": 18347
+    },
+    {
+      "name": "Bell Centre",
+      "location": "Montreal, Quebec",
+      "capacity": 21302
+    },
+    {
+      "name": "Scotiabank Arena",
+      "location": "Toronto, Ontario",
+      "capacity": 19800
+    },
+    {
+      "name": "Canadian Tire Centre",
+      "location": "Ottawa, Ontario",
+      "capacity": 18300
+    }
+  ]
+  

@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Lakers vs Warriors",
+      "date": "2025-06-10T19:00:00Z",
+      "sport": "NBA",
+      "venue_id": 1,
+      "team1_id": 1,
+      "team2_id": 2
+    },
+    {
+      "name": "Flames vs Oilers",
+      "date": "2025-06-15T19:00:00Z",
+      "sport": "Hockey",
+      "venue_id": 2,
+      "team1_id": 3,
+      "team2_id": 4
+    }
+  ]
+  
