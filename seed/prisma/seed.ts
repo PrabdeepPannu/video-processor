@@ -67,12 +67,32 @@ async function insertTeamsFromJson(directory: string) {
   }
 }
 
+
+async function insertVideosFromJson(fileName: string) {
+  const videosData = readJsonFile(fileName);
+    console.log('Starting to seed videos from JSON files ...');
+    for (const video of videosData) {
+      await prisma.video.create({
+        data: {
+          url: video.url,
+          format: video.format,
+          duration: video.duration,
+          resolution: video.resolution,
+          frameRate: video.frameRate,
+          game_id: video.game_id
+        }
+      });
+    }
+    console.log(`Finished seeding videos`);
+}
+
 async function main() {
   console.log(`Start seeding ...`);
   await insertVenuesFromJson('testData/venue/venue.json');
   await insertTeamsFromJson('testData/teams');
   await insertPlayersFromJson('testData/teams');
   await insertGamesFromJson('testData/game.json');
+  await insertVideosFromJson("testData/videos.json");
   console.log(`Seeding finished.`);
 }
 

@@ -1,0 +1,83 @@
+[
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/FlamesVsIslanders1.mp4",
+      "format": "mp4",
+      "duration": 3600,
+      "resolution": "1920x1080",
+      "frameRate": 30.0,
+      "game_id": 1
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/FlamesVsIslanders2.mp4",
+      "format": "mp4",
+      "duration": 3400,
+      "resolution": "1920x1080",
+      "frameRate": 30.0,
+      "game_id": 1
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/FlamesVsIslanders3.mp4",
+      "format": "mp4",
+      "duration": 3700,
+      "resolution": "1920x1080",
+      "frameRate": 30.0,
+      "game_id": 1
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/FlamesVsIslanders4.mp4",
+      "format": "mp4",
+      "duration": 3500,
+      "resolution": "1920x1080",
+      "frameRate": 30.0,
+      "game_id": 1
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/FlamesVsIslanders5.mp4",
+      "format": "mp4",
+      "duration": 3650,
+      "resolution": "1920x1080",
+      "frameRate": 30.0,
+      "game_id": 1
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/WarriorsVsLakers1.mp4",
+      "format": "mp4",
+      "duration": 4000,
+      "resolution": "1920x1080",
+      "frameRate": 60.0,
+      "game_id": 2
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/WarriorsVsLakers2.mp4",
+      "format": "mp4",
+      "duration": 4200,
+      "resolution": "1920x1080",
+      "frameRate": 60.0,
+      "game_id": 2
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/WarriorsVsLakers3.mp4",
+      "format": "mp4",
+      "duration": 4100,
+      "resolution": "1920x1080",
+      "frameRate": 60.0,
+      "game_id": 2
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/WarriorsVsLakers4.mp4",
+      "format": "mp4",
+      "duration": 4300,
+      "resolution": "1920x1080",
+      "frameRate": 60.0,
+      "game_id": 2
+    },
+    {
+      "url": "https://www.dropbox.com/scl/fo/r8oa0jaafecaut984vzcz/ACn5qgTxEkwip95UDc7RMpE/Video%20Clips/WarriorsVsLakers5.mp4",
+      "format": "mp4",
+      "duration": 4400,
+      "resolution": "1920x1080",
+      "frameRate": 60.0,
+      "game_id": 2
+    }
+  ]
+  
