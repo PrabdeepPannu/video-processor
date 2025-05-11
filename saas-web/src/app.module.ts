@@ -8,15 +8,18 @@ import { PlayersController } from "./players/players.controller";
 import { GamesController } from "./games/games.controller";
 import { TeamsController } from "./teams/teams.controller";
 import { VenuesController } from "./venue/venue.controller";
+import { VideosRepository } from "./videos/videos.repository";
+import { VideosController } from "./videos/videos.controller";
 
 @Module({
   imports: [],
-  controllers: [PlayersController, GamesController, TeamsController, VenuesController],
+  controllers: [PlayersController, GamesController, TeamsController, VenuesController, VideosController],
   providers: [
     PlayersRepository,
     GamesRepository,
     TeamsRepository,
-    VenuesRepository
+    VenuesRepository,
+    VideosRepository
   ],
 })
 export class AppModule {}

@@ -1,53 +1,49 @@
 -- CreateTable
 CREATE TABLE "Game" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "sport" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
     "venue_id" INTEGER NOT NULL,
     "team1_id" INTEGER NOT NULL,
     "team2_id" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "Game_pkey" PRIMARY KEY ("id")
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
 
 -- CreateTable
 CREATE TABLE "Venue" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "location" TEXT NOT NULL,
     "capacity" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "Venue_pkey" PRIMARY KEY ("id")
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
 
 -- CreateTable
 CREATE TABLE "Team" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "league" TEXT NOT NULL,
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "Team_pkey" PRIMARY KEY ("id")
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
 
 -- CreateTable
 CREATE TABLE "Player" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "jersey_number" INTEGER NOT NULL,
+    "jerseyNumber" INTEGER NOT NULL,
     "team_id" INTEGER NOT NULL,
     "position" TEXT NOT NULL,
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "Player_pkey" PRIMARY KEY ("id")
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
 
 -- CreateTable
 CREATE TABLE "AppearanceMatrix" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "game_id" INTEGER NOT NULL,
     "player_id" INTEGER NOT NULL,
     "jersey_number" INTEGER NOT NULL,
@@ -56,25 +52,22 @@ CREATE TABLE "AppearanceMatrix" (
     "duration" INTEGER NOT NULL,
     "max_size" FLOAT NOT NULL,
     "prominence_score" FLOAT NOT NULL,
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "AppearanceMatrix_pkey" PRIMARY KEY ("id")
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
 
 -- CreateTable
 CREATE TABLE "Video" (
-    "id" SERIAL NOT NULL,
+    "id" SERIAL PRIMARY KEY,
     "game_id" INTEGER NOT NULL,
     "url" TEXT NOT NULL,
     "format" TEXT NOT NULL,
     "duration" INTEGER NOT NULL,  -- Duration in seconds
     "resolution" TEXT NOT NULL,   -- e.g., "1920x1080"
-    "frame_rate" FLOAT NOT NULL,  -- e.g., 30.0
-    "created_at" TIMESTAMP(3) DEFAULT now(),
-    "updated_at" TIMESTAMP(3) DEFAULT now(),
-    CONSTRAINT "Video_pkey" PRIMARY KEY ("id")
+    "frameRate" FLOAT NOT NULL,  -- e.g., 30.0
+    "createdAt" TIMESTAMP(3) DEFAULT now(),
+    "updatedAt" TIMESTAMP(3) DEFAULT now()
 );
-
 
 -- AddForeignKey
 ALTER TABLE "Game" ADD CONSTRAINT "Game_venue_id_fkey" FOREIGN KEY ("venue_id") REFERENCES "Venue"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -90,3 +83,43 @@ ALTER TABLE "AppearanceMatrix" ADD CONSTRAINT "AppearanceMatrix_player_id_fkey" 
 
 -- AddForeignKey
 ALTER TABLE "Video" ADD CONSTRAINT "Video_game_id_fkey" FOREIGN KEY ("game_id") REFERENCES "Game"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- Trigger for automatic update of updatedAt column
+CREATE OR REPLACE FUNCTION update_timestamp() 
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW."updatedAt" = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Add triggers to automatically update the updatedAt field on update
+CREATE TRIGGER update_game_timestamp
+BEFORE UPDATE ON "Game"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER update_team_timestamp
+BEFORE UPDATE ON "Team"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER update_player_timestamp
+BEFORE UPDATE ON "Player"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER update_venue_timestamp
+BEFORE UPDATE ON "Venue"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER update_appearance_matrix_timestamp
+BEFORE UPDATE ON "AppearanceMatrix"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER update_video_timestamp
+BEFORE UPDATE ON "Video"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
