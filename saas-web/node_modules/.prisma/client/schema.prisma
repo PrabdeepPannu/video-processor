@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id        Int      @id @default(autoincrement())
+  name      String
+  date      DateTime
+  sport     String   // "NBA" or "Hockey"
+  venue     Venue    @relation(fields: [venue_id], references: [id])
+  team1     Team     @relation("team1", fields: [team1_id], references: [id])
+  team2     Team     @relation("team2", fields: [team2_id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  venue_id Int
+  team1_id Int
+  team2_id Int
+  videos   Video[]
+  appearances AppearanceMatrix[]
+}
+
+model Venue {
+  id        Int      @id @default(autoincrement())
+  name      String
+  location  String
+  capacity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  games Game[]
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String
+  league    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  players Player[]
+  games1  Game[] @relation("team1")
+  games2  Game[] @relation("team2")
+}
+
+model Player {
+  id           Int      @id @default(autoincrement())
+  name         String
+  jerseyNumber Int
+  position     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  team      Team  @relation(fields: [team_id], references: [id])
+  team_id   Int
+  appearances AppearanceMatrix[]
+}
+
+model AppearanceMatrix {
+  id              Int      @id @default(autoincrement())
+  jerseyNumber    Int
+  inPoint         Int
+  outPoint        Int
+  duration        Int
+  maxSize         Float
+  prominenceScore Float
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  game   Game   @relation(fields: [game_id], references: [id])
+  player Player @relation(fields: [player_id], references: [id])
+  game_id   Int
+  player_id Int
+}
+
+model Video {
+  id         Int      @id @default(autoincrement())
+  url        String
+  format     String
+  duration   Int
+  resolution String
+  frameRate  Float
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  game   Game @relation(fields: [game_id], references: [id])
+  game_id Int
+}

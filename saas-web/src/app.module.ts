@@ -1,3 +1,4 @@
+import { Module } from "@nestjs/common";
 
 import { PlayersRepository} from "./players/players.repository";
 import { GamesRepository } from "./games/games.repository";
