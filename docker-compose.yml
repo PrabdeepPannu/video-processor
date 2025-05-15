@@ -33,6 +33,7 @@ services:
       - cbh_thc_network
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+    restart: "no"
     command: "./start.sh"
 
   saas-web:
@@ -40,49 +41,75 @@ services:
       context: ./saas-web/
       dockerfile: Dockerfile
     ports:
-      - 3003:3000
+      - 3003:3003
     depends_on:
       - db
       - redis
     networks:
       - cbh_thc_network
+    volumes:
+      - ./saas-web/:/opt/app
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres # Updated to reflect new db name
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
       - REDIS_URL=redis://redis:6379
     command: "./start.sh"
 
+  ocr-service:
+    build:
+      context: ./saas-processor
+      dockerfile: Dockerfile.ocr_service
+    ports:
+      - '5000:5000'
+    depends_on:
+      - redis
+    networks:
+      - cbh_thc_network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
 
-    # video-processor:
-    #   build:
-    #     context: ./saas-processor/
-    #     dockerfile: Dockerfile
-    #   ports:
-    #     - 3002:3000
-    #   depends_on:
-    #     - db
-    #     - redis
-    #   networks:
-    #     - cbh_thc_network
-    #   environment:
-    #     - DATABASE_URL=postgres://postgres:postgres@db:5432/video_processor  # Updated to reflect new db name
-    #     - REDIS_URL=redis://redis:6379
-    #   command: "./start.sh"
 
-    # saas-client:
-    #   build:
-    #     context: ./saas-client/
-    #     dockerfile: Dockerfile
-    #   ports:
-    #     - 3000:3000
-    #   depends_on:
-    #     - db
-    #     - redis
-    #   networks:
-    #     - cbh_thc_network
-    #   environment:
-    #     - DATABASE_URL=postgres://postgres:postgres@db:5432/video_processor  # Updated to reflect new db name
-    #     - REDIS_URL=redis://redis:6379
-    #   command: "./start.sh"
+  video-processor:
+    build:
+      context: ./saas-processor
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    depends_on:
+      - redis
+      - ocr-service
+    networks:
+      - cbh_thc_network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PYTHON_SERVICE_URL=http://ocr-service:5000
+
+
+  saas-client:
+    build:
+      context: ./saas-client/
+      dockerfile: Dockerfile
+    ports:
+      - 8080:3000
+    depends_on:
+      - saas-web
+      # - video-processor
+    networks:
+      - cbh_thc_network
+    volumes:
+      - ./saas-client/:/usr/src/app
+    environment:
+      # Point API calls at your host-mapped saas-web:
+      - REACT_APP_BACKEND_API=http://localhost:3003
+      - REACT_APP_VIDEO_PROCESSOR_SERVICE_URL=http://localhost:3002
+      # Override webpack-dev-server’s socket so HMR works over port 8080
+      - WDS_SOCKET_HOST=localhost
+      - WDS_SOCKET_PORT=8080
+      - WDS_SOCKET_PATH=/ws
+      - CHOKIDAR_USEPOLLING=true
+
+
 
 networks:
   cbh_thc_network:
