@@ -1,21 +1,21 @@
-FROM node:22
+FROM node:18-slim
 
-# Install procps so the watch mode doesn't crash the container on reload
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      curl && \
+    npm install -g npm@9 && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get -y install procps
 
-# Install FFmpeg
-RUN apt-get update && apt-get install -y ffmpeg
-# Default port for NestJS
-EXPOSE 3000
-
-#Temporary folder for node_modules
 WORKDIR /opt/app
 
-#Copy everything into docker
 COPY . .
 
-# Install dependencies
+ENV PATH=/opt/app/node_modules/.bin:$PATH
+
 RUN npm i
 
-# Add node_modules bin to the path
-ENV PATH=/opt/app/node_modules/.bin:$PATH
+EXPOSE 3000
+
+CMD ["npm", "start"]
