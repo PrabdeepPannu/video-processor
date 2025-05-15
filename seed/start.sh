@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# We wait for PostgreSQL in the docker-compose to be up and ready to accept connections
-sleep 5
+# Wait for PostgreSQL to be ready
+until npx prisma db push; do
+  echo "Waiting for PostgreSQL..."
+  sleep 2
+done
 
 echo "PostgreSQL is ready!"
 
-npm run prisma-init
-
+# Run migrations and seed the database
+npx prisma migrate deploy
 npx prisma db seed
 
 echo "Database setup completed."

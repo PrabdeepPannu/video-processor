@@ -60,6 +60,7 @@ CREATE TABLE "AppearanceMatrix" (
 CREATE TABLE "Video" (
     "id" SERIAL PRIMARY KEY,
     "game_id" INTEGER NOT NULL,
+    "preview" TEXT NOT NULL,
     "url" TEXT NOT NULL,
     "format" TEXT NOT NULL,
     "duration" INTEGER NOT NULL,  -- Duration in seconds

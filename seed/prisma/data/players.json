@@ -1,445 +1,445 @@
 [
     {
         "name": "Rasmus Andersson",
-        "number": 4,
+        "jerseyNumber": 4,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Kevin Bahl",
-        "number": 7,
+        "jerseyNumber": 7,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Tyson Barrie",
-        "number": 8,
+        "jerseyNumber": 8,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Jonathan Huberdeau",
-        "number": 10,
+        "jerseyNumber": 10,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Mikael Backlund",
-        "number": 11,
+        "jerseyNumber": 11,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Jake Bean",
-        "number": 24,
+        "jerseyNumber": 24,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Matt Coronato",
-        "number": 27,
+        "jerseyNumber": 27,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Blake Coleman",
-        "number": 20,
+        "jerseyNumber": 20,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Morgan Frost",
-        "number": 16,
+        "jerseyNumber": 16,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Joel Hanley",
-        "number": 44,
+        "jerseyNumber": 44,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Jonathan Aspirot",
-        "number": 76,
+        "jerseyNumber": 76,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "MacKenzie Weegar",
-        "number": 52,
+        "jerseyNumber": 52,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Brayden Pachal",
-        "number": 94,
+        "jerseyNumber": 94,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Zayne Parekh",
-        "number": 89,
+        "jerseyNumber": 89,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Daniil Miromanov",
-        "number": 62,
+        "jerseyNumber": 62,
         "position": "D",
         "team_id": 1
     },
     {
         "name": "Connor Zary",
-        "number": 47,
+        "jerseyNumber": 47,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Yegor Sharangovich",
-        "number": 17,
+        "jerseyNumber": 17,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Nazem Kadri",
-        "number": 91,
+        "jerseyNumber": 91,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Justin Kirkland",
-        "number": 58,
+        "jerseyNumber": 58,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Kevin Rooney",
-        "number": 21,
+        "jerseyNumber": 21,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Martin Pospisil",
-        "number": 76,
+        "jerseyNumber": 76,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Anthony Mantha",
-        "number": 39,
+        "jerseyNumber": 39,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Joel Farabee",
-        "number": 86,
+        "jerseyNumber": 86,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Ryan Lomberg",
-        "number": 70,
+        "jerseyNumber": 70,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Aydar Suniev",
-        "number": 36,
+        "jerseyNumber": 36,
         "position": "F",
         "team_id": 1
     },
     {
         "name": "Dustin Wolf",
-        "number": 32,
+        "jerseyNumber": 32,
         "position": "G",
         "team_id": 1
     },
     {
         "name": "Dan Vladar",
-        "number": 80,
+        "jerseyNumber": 80,
         "position": "G",
         "team_id": 1
     },
     {
         "name": "Mathew Barzal",
-        "number": 13,
+        "jerseyNumber": 13,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Casey Cizikas",
-        "number": 53,
+        "jerseyNumber": 53,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Bo Horvat",
-        "number": 14,
+        "jerseyNumber": 14,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Jean-Gabriel Pageau",
-        "number": 44,
+        "jerseyNumber": 44,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Kyle Palmieri",
-        "number": 21,
+        "jerseyNumber": 21,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Noah Dobson",
-        "number": 8,
+        "jerseyNumber": 8,
         "position": "D",
         "team_id": 2
     },
     {
         "name": "Adam Pelech",
-        "number": 3,
+        "jerseyNumber": 3,
         "position": "D",
         "team_id": 2
     },
     {
         "name": "Ryan Pulock",
-        "number": 6,
+        "jerseyNumber": 6,
         "position": "D",
         "team_id": 2
     },
     {
         "name": "Alexander Romanov",
-        "number": 28,
+        "jerseyNumber": 28,
         "position": "D",
         "team_id": 2
     },
     {
         "name": "Tony DeAngelo",
-        "number": 4,
+        "jerseyNumber": 4,
         "position": "D",
         "team_id": 2
     },
     {
         "name": "Anthony Duclair",
-        "number": 11,
+        "jerseyNumber": 11,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Pierre Engvall",
-        "number": 18,
+        "jerseyNumber": 18,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Maxim Tsyplakov",
-        "number": 7,
+        "jerseyNumber": 7,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Ken MacLean",
-        "number": 32,
+        "jerseyNumber": 32,
         "position": "G",
         "team_id": 2
     },
     {
         "name": "Matt Gatcomb",
-        "number": 16,
+        "jerseyNumber": 16,
         "position": "F",
         "team_id": 2
     },
     {
         "name": "Stephen Curry",
-        "number": 30,
+        "jerseyNumber": 30,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Draymond Green",
-        "number": 23,
+        "jerseyNumber": 23,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "Jimmy Butler III",
-        "number": 10,
+        "jerseyNumber": 10,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "Buddy Hield",
-        "number": 7,
+        "jerseyNumber": 7,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Taran Armstrong",
-        "number": 1,
+        "jerseyNumber": 1,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Moses Moody",
-        "number": 4,
+        "jerseyNumber": 4,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Trayce Jackson-Davis",
-        "number": 32,
+        "jerseyNumber": 32,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "Jonathan Kuminga",
-        "number": 0,
+        "jerseyNumber": 0,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "Kevon Looney",
-        "number": 5,
+        "jerseyNumber": 5,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "Gary Payton II",
-        "number": 8,
+        "jerseyNumber": 8,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Brandin Podziemski",
-        "number": 2,
+        "jerseyNumber": 2,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Andrew Wiggins",
-        "number": 22,
+        "jerseyNumber": 22,
         "position": "F",
         "team_id": 3
     },
     {
         "name": "De'Anthony Melton",
-        "number": 0,
+        "jerseyNumber": 0,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "Dennis Schröder",
-        "number": 17,
+        "jerseyNumber": 17,
         "position": "G",
         "team_id": 3
     },
     {
         "name": "LeBron James",
-        "number": 23,
+        "jerseyNumber": 23,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Bronny James",
-        "number": 9,
+        "jerseyNumber": 9,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Luka Dončić",
-        "number": 77,
+        "jerseyNumber": 77,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Austin Reaves",
-        "number": 15,
+        "jerseyNumber": 15,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "D'Angelo Russell",
-        "number": 1,
+        "jerseyNumber": 1,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Rui Hachimura",
-        "number": 28,
+        "jerseyNumber": 28,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Jaxson Hayes",
-        "number": 11,
+        "jerseyNumber": 11,
         "position": "C",
         "team_id": 4
     },
     {
         "name": "Trey Jemison",
-        "number": 55,
+        "jerseyNumber": 55,
         "position": "C",
         "team_id": 4
     },
     {
         "name": "Dalton Knecht",
-        "number": 4,
+        "jerseyNumber": 4,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Maxi Kleber",
-        "number": 14,
+        "jerseyNumber": 14,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Christian Koloko",
-        "number": 10,
+        "jerseyNumber": 10,
         "position": "C",
         "team_id": 4
     },
     {
         "name": "Alex Len",
-        "number": 27,
+        "jerseyNumber": 27,
         "position": "C",
         "team_id": 4
     },
     {
         "name": "Shake Milton",
-        "number": 20,
+        "jerseyNumber": 20,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Markieff Morris",
-        "number": 88,
+        "jerseyNumber": 88,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Gabe Vincent",
-        "number": 7,
+        "jerseyNumber": 7,
         "position": "G",
         "team_id": 4
     },
     {
         "name": "Jarred Vanderbilt",
-        "number": 2,
+        "jerseyNumber": 2,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Cam Reddish",
-        "number": 5,
+        "jerseyNumber": 5,
         "position": "F",
         "team_id": 4
     },
     {
         "name": "Max Christie",
-        "number": 10,
+        "jerseyNumber": 10,
         "position": "G",
         "team_id": 4
     }
