@@ -94,16 +94,15 @@ services:
       - 8080:3000
     depends_on:
       - saas-web
-      # - video-processor
+      - video-processor
     networks:
       - cbh_thc_network
     volumes:
       - ./saas-client/:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
-      # Point API calls at your host-mapped saas-web:
       - REACT_APP_BACKEND_API=http://localhost:3003
       - REACT_APP_VIDEO_PROCESSOR_SERVICE_URL=http://localhost:3002
-      # Override webpack-dev-server’s socket so HMR works over port 8080
       - WDS_SOCKET_HOST=localhost
       - WDS_SOCKET_PORT=8080
       - WDS_SOCKET_PATH=/ws
