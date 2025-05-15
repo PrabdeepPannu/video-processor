@@ -18,29 +18,35 @@ const swagger_1 = require("@nestjs/swagger");
 const requestperformance_interceptor_1 = require("../requestperformance.interceptor");
 const games_repository_1 = require("./games.repository");
 let GamesController = class GamesController {
-    constructor(gamesRepository) {
-        this.gamesRepository = gamesRepository;
+    constructor(gamesRepo) {
+        this.gamesRepo = gamesRepo;
     }
     async getAll() {
-        return await this.gamesRepository.getAll();
+        console.log("Fetching all games...");
+        return this.gamesRepo.getAll();
     }
     async getById(id) {
-        return await this.gamesRepository.getById(id);
+        console.log(`Looking up game ${id}...`);
+        const game = await this.gamesRepo.getById(id);
+        if (!game) {
+            console.warn(`Game ${id} not found!`);
+        }
+        return game;
     }
 };
 __decorate([
     (0, common_1.Get)(),
-    (0, swagger_1.ApiOperation)({ summary: "Retrieve all Game entities" }),
-    (0, swagger_1.ApiResponse)({ status: 200, description: "All Game entities" }),
+    (0, swagger_1.ApiOperation)({ summary: "Get all games" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Array of Game entities" }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], GamesController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)(":id"),
-    (0, swagger_1.ApiOperation)({ summary: "Retrieve a Game entity" }),
-    (0, swagger_1.ApiParam)({ name: "id", description: "The ID of the Game", required: true, type: Number }),
-    (0, swagger_1.ApiResponse)({ status: 200, description: "A single Game entity with the given ID" }),
+    (0, swagger_1.ApiOperation)({ summary: "Get game by ID" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Game ID", type: Number, required: true }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "A single Game entity" }),
     __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),

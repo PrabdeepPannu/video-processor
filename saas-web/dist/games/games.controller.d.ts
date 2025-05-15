@@ -1,7 +1,7 @@
 import { GamesRepository } from "./games.repository";
 export declare class GamesController {
-    private readonly gamesRepository;
-    constructor(gamesRepository: GamesRepository);
+    private readonly gamesRepo;
+    constructor(gamesRepo: GamesRepository);
     getAll(): Promise<(import("@prisma/client/runtime").GetResult<{
         id: number;
         name: string;

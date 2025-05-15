@@ -8,7 +8,10 @@ class VenuesRepository {
         return await prisma.venue.findMany();
     }
     async getById(id) {
-        return await prisma.venue.findUnique({ where: { id } });
+        const venueId = typeof id === 'string' ? parseInt(id, 10) : id;
+        return prisma.venue.findUnique({
+            where: { id: venueId },
+        });
     }
 }
 exports.VenuesRepository = VenuesRepository;

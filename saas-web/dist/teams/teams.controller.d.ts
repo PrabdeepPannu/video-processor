@@ -9,11 +9,32 @@ export declare class TeamsController {
         createdAt: Date;
         updatedAt: Date;
     }, unknown, never> & {})[]>;
-    getById(id: number): Promise<import("@prisma/client/runtime").GetResult<{
+    getById(id: number): Promise<(import("@prisma/client/runtime").GetResult<{
         id: number;
         name: string;
         league: string;
         createdAt: Date;
         updatedAt: Date;
-    }, unknown, never> & {}>;
+    }, unknown, never> & {}) | {
+        message: string;
+    }>;
+    getByLeague(league: string): Promise<({
+        team: import("@prisma/client/runtime").GetResult<{
+            id: number;
+            name: string;
+            league: string;
+            createdAt: Date;
+            updatedAt: Date;
+        }, unknown, never> & {};
+    } & import("@prisma/client/runtime").GetResult<{
+        id: number;
+        name: string;
+        jerseyNumber: number;
+        position: string;
+        createdAt: Date;
+        updatedAt: Date;
+        team_id: number;
+    }, unknown, never> & {})[] | {
+        message: string;
+    }>;
 }
