@@ -16,32 +16,23 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 ocr = PaddleOCR(use_angle_cls=True, lang='en', show_log=False, use_gpu=False)
-FRAME_INTERVAL = 30 
+FRAME_INTERVAL = 30  # process every 30th frame
 
 signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
 
 # ----------------------------------------------------------------------------
 # Helper Functions
 # ----------------------------------------------------------------------------
-def compute_prominence(duration: int, max_size: float) -> float:
-    """
-    Calculate prominence
-    """
+def compute_prominence_score(duration: int, max_size: float) -> float:
     return duration * max_size
 
 
 def frame_size_ratio(frame) -> float:
-    """
-    Return a size metric
-    """
     h, w = frame.shape[:2]
     return max(h, w) / (h * w) * 100
 
 
 def respond(payload=None, error_msg=None):
-    """
-    Uniform JSON response structure.
-    """
     return jsonify({
         'success': error_msg is None,
         'data': payload if error_msg is None else None,
@@ -85,11 +76,12 @@ def detect():
                 logger.warning(f"OCR error at frame {frame_count}: {e}")
                 continue
 
-            if not ocr_result or not isinstance(ocr_result, list) or len(ocr_result) == 0:
+            if not ocr_result or not isinstance(ocr_result, list):
                 continue
 
             for line in ocr_result:
-                if not line:
+                if line is None:
+                    logger.warning("Received None for 'line'")
                     continue
                 for entry in line:
                     if len(entry) < 2:
@@ -101,23 +93,34 @@ def detect():
                     jersey = text
                     size_metric = frame_size_ratio(frame)
 
-                    if jersey in players:
-                        rec = players[jersey]
-                        rec['duration'] = rec.get('duration', 0) + FRAME_INTERVAL
-                        rec['max_size'] = max(rec.get('max_size', 0), size_metric)
-                    else:
+                    if jersey not in players:
                         players[jersey] = {
+                            'in_point': frame_count,
+                            'out_point': frame_count,
                             'duration': FRAME_INTERVAL,
                             'max_size': size_metric
                         }
+                    else:
+                        rec = players[jersey]
+                        rec['out_point'] = frame_count
+                        rec['duration'] += FRAME_INTERVAL
+                        rec['max_size'] = max(rec['max_size'], size_metric)
 
         cap.release()
 
+        output = {}
         for jersey, rec in players.items():
-            rec['prominence'] = compute_prominence(rec['duration'], rec['max_size'])
+            prominence = compute_prominence_score(rec['duration'], rec['max_size'])
+            output[jersey] = {
+                'in_point': rec['in_point'],
+                'out_point': rec['out_point'],
+                'max_size': rec['max_size'],
+                'duration': rec['duration'],
+                'prominence_score': prominence
+            }
 
-        logger.info(f"Frames processed: {frame_count}, players found: {len(players)}")
-        return respond(payload=players)
+        logger.info(f"Frames processed: {frame_count}, players found: {len(output)}")
+        return respond(payload=output)
 
     finally:
         try:
