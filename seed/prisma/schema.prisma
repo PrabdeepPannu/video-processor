@@ -80,6 +80,7 @@ model AppearanceMatrix {
 
 model Video {
   id         Int      @id @default(autoincrement())
+  preview    String
   url        String
   format     String
   duration   Int

@@ -1,4 +1,5 @@
-FROM node:16
+# Use a compatible version of Node.js
+FROM node:20
 
 # Install procps so the watch mode doesn't crash the container on reload
 RUN apt-get update && apt-get -y install procps
