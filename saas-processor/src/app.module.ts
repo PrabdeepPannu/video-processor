@@ -2,15 +2,15 @@ import { Module } from "@nestjs/common";
 
 import { VideosRepository} from "./videos/videos.repository";
 import { VideosController } from "./videos/videos.controller";
-import { VideoProcesingService } from "./videos/video-processing.service";
+import { VideoProcessingService } from "./videos/video-processing.service";
 
 @Module({
   imports: [],
   controllers: [VideosController],
   providers: [
     VideosRepository,
-    VideoProcesingService
+    VideoProcessingService
   ],
-  exports: [VideoProcesingService], 
+  exports: [VideoProcessingService], 
 })
 export class AppModule {}

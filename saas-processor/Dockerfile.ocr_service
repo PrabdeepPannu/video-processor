@@ -1,0 +1,28 @@
+FROM python:3.9-slim
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      build-essential \
+      ffmpeg \
+      python3-opencv \
+      libopencv-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set up a virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install Python packages including ultralytics
+RUN pip install --upgrade pip && \
+    pip install paddlepaddle paddleocr opencv-python flask redis ultralytics
+
+# Set working directory and copy the service files
+WORKDIR /app
+COPY ./service/ /app/
+
+# Expose the application port
+EXPOSE 5000
+
+# Start the service
+CMD ["python", "ocr_yolo_service.py"]
