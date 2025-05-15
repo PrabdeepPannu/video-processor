@@ -8,7 +8,25 @@ class TeamsRepository {
         return await prisma.team.findMany();
     }
     async getById(id) {
-        return await prisma.team.findUnique({ where: { id } });
+        const teamId = typeof id === 'string' ? parseInt(id, 10) : id;
+        return prisma.team.findUnique({
+            where: { id: teamId },
+        });
+    }
+    async getByName(name) {
+        return await prisma.player.findMany({ where: { name } });
+    }
+    async getByLeague(league) {
+        return await prisma.player.findMany({
+            where: {
+                team: {
+                    league: league,
+                },
+            },
+            include: {
+                team: true,
+            },
+        });
     }
 }
 exports.TeamsRepository = TeamsRepository;

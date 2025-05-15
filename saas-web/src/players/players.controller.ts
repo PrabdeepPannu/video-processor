@@ -35,11 +35,11 @@ export class PlayersController {
     return await this.playersRepository.getByJerseyNumber(jerseyNumber);
   }
 
-  @Get('name/:name')
-  @ApiOperation({ summary: 'Retrieve a Player entity by Name' })
-  @ApiParam({ name: 'name', description: 'The Name of the Player', required: true, type: String })
-  @ApiResponse({ status: 200, description: 'A single Player entity with the given Name' })
-  async getByName(@Param('name') name: string) {
-    return await this.playersRepository.getByName(name);
-  }
+  // @Get('name/:name')
+  // @ApiOperation({ summary: 'Retrieve a Player entity by Name' })
+  // @ApiParam({ name: 'name', description: 'The Name of the Player', required: true, type: String })
+  // @ApiResponse({ status: 200, description: 'A single Player entity with the given Name' })
+  // async getByName(@Param('name') name: string) {
+  //   return await this.playersRepository.getByName(name);
+  // }
 }

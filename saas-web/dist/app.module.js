@@ -16,17 +16,20 @@ const players_controller_1 = require("./players/players.controller");
 const games_controller_1 = require("./games/games.controller");
 const teams_controller_1 = require("./teams/teams.controller");
 const venue_controller_1 = require("./venue/venue.controller");
+const videos_repository_1 = require("./videos/videos.repository");
+const videos_controller_1 = require("./videos/videos.controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [],
-        controllers: [players_controller_1.PlayersController, games_controller_1.GamesController, teams_controller_1.TeamsController, venue_controller_1.VenuesController],
+        controllers: [players_controller_1.PlayersController, games_controller_1.GamesController, teams_controller_1.TeamsController, venue_controller_1.VenuesController, videos_controller_1.VideosController],
         providers: [
             players_repository_1.PlayersRepository,
             games_repository_1.GamesRepository,
             teams_repository_1.TeamsRepository,
-            venue_repository_1.VenuesRepository
+            venue_repository_1.VenuesRepository,
+            videos_repository_1.VideosRepository
         ],
     })
 ], AppModule);

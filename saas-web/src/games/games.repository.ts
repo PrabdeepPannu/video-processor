@@ -8,7 +8,12 @@ export class GamesRepository {
     return await prisma.game.findMany();
   }
 
-  async getById(id: number) {
-    return await prisma.game.findUnique({ where: { id } });
+
+  async getById(id: string | number) {
+    const gameId = typeof id === 'string' ? parseInt(id, 10) : id;
+    return prisma.game.findUnique({
+      where: { id: gameId },
+    });
   }
+
 }

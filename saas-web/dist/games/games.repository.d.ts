@@ -10,7 +10,7 @@ export declare class GamesRepository {
         team1_id: number;
         team2_id: number;
     }, unknown, never> & {})[]>;
-    getById(id: number): Promise<import("@prisma/client/runtime").GetResult<{
+    getById(id: string | number): Promise<import("@prisma/client/runtime").GetResult<{
         id: number;
         name: string;
         date: Date;

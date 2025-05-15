@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  binaryTargets = ["native", "debian-openssl-1.1.x"]
 }
 
 datasource db {
@@ -81,6 +80,7 @@ model AppearanceMatrix {
 
 model Video {
   id         Int      @id @default(autoincrement())
+  preview        String
   url        String
   format     String
   duration   Int

@@ -27,6 +27,9 @@ let PlayersController = class PlayersController {
     async getById(id) {
         return await this.playersRepository.getById(id);
     }
+    async getByJerseyNumber(jerseyNumber) {
+        return await this.playersRepository.getByJerseyNumber(jerseyNumber);
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -49,6 +52,16 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], PlayersController.prototype, "getById", null);
+__decorate([
+    (0, common_1.Get)('jersey/:jerseyNumber'),
+    (0, swagger_1.ApiOperation)({ summary: 'Retrieve a Player entity by Jersey Number' }),
+    (0, swagger_1.ApiParam)({ name: 'jerseyNumber', description: 'The Jersey Number of the Player', required: true, type: Number }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'A single Player entity with the given Jersey Number' }),
+    __param(0, (0, common_1.Param)('jerseyNumber')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], PlayersController.prototype, "getByJerseyNumber", null);
 PlayersController = __decorate([
     (0, common_1.Controller)("players"),
     (0, common_1.UseInterceptors)(requestperformance_interceptor_1.RequestPerformanceInterceptor),

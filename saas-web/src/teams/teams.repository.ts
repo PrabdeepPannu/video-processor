@@ -8,8 +8,11 @@ export class TeamsRepository {
     return await prisma.team.findMany();
   }
 
-  async getById(id: number) {
-    return await prisma.team.findUnique({ where: { id } });
+  async getById(id: string | number) {
+    const teamId = typeof id === 'string' ? parseInt(id, 10) : id;
+    return prisma.team.findUnique({
+      where: { id: teamId },
+    });
   }
 
   async getByName(name: string) {
