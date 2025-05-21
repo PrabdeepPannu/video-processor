@@ -1,0 +1,57 @@
+[
+    {
+        "jersey": "5",
+        "stats": {
+            "avg_size": 0.0034,
+            "duration": 0.33,
+            "in_point": 200,
+            "max_size": 0.0034,
+            "out_point": 200,
+            "prominence_score": 0.0011
+        }
+    },
+    {
+        "jersey": "15",
+        "stats": {
+            "avg_size": 0.0026,
+            "duration": 0.33,
+            "in_point": 170,
+            "max_size": 0.0026,
+            "out_point": 170,
+            "prominence_score": 0.0009
+        }
+    },
+    {
+        "jersey": "99",
+        "stats": {
+            "avg_size": 0.0032,
+            "duration": 0.33,
+            "in_point": 260,
+            "max_size": 0.0032,
+            "out_point": 260,
+            "prominence_score": 0.0011
+        }
+    },
+    {
+        "jersey": "155",
+        "stats": {
+            "avg_size": 0.0088,
+            "duration": 0.33,
+            "in_point": 40,
+            "max_size": 0.0088,
+            "out_point": 40,
+            "prominence_score": 0.0029
+        }
+    },
+    {
+        "jersey": "1010",
+        "stats": {
+            "avg_size": 0.0033,
+            "duration": 0.33,
+            "in_point": 250,
+            "max_size": 0.0038,
+            "out_point": 260,
+            "prominence_score": 0.0011
+        }
+    }
+]

@@ -1,0 +1,90 @@
+[
+    {
+        "jersey": "4",
+        "stats": {
+            "avg_size": 0.0167,
+            "duration": 10.68,
+            "in_point": 50,
+            "max_size": 0.058,
+            "out_point": 690,
+            "prominence_score": 0.1781
+        }
+    },
+    {
+        "jersey": "5",
+        "stats": {
+            "avg_size": 0.0002,
+            "duration": 0.17,
+            "in_point": 990,
+            "max_size": 0.0002,
+            "out_point": 990,
+            "prominence_score": 0
+        }
+    },
+    {
+        "jersey": "7",
+        "stats": {
+            "avg_size": 0.0014,
+            "duration": 0.5,
+            "in_point": 420,
+            "max_size": 0.0027,
+            "out_point": 910,
+            "prominence_score": 0.0007
+        }
+    },
+    {
+        "jersey": "11",
+        "stats": {
+            "avg_size": 0.0025,
+            "duration": 0.5,
+            "in_point": 970,
+            "max_size": 0.0033,
+            "out_point": 1060,
+            "prominence_score": 0.0012
+        }
+    },
+    {
+        "jersey": "17",
+        "stats": {
+            "avg_size": 0.0019,
+            "duration": 0.17,
+            "in_point": 1030,
+            "max_size": 0.0019,
+            "out_point": 1030,
+            "prominence_score": 0.0003
+        }
+    },
+    {
+        "jersey": "44",
+        "stats": {
+            "avg_size": 0.0216,
+            "duration": 12.01,
+            "in_point": 50,
+            "max_size": 0.0823,
+            "out_point": 800,
+            "prominence_score": 0.2591
+        }
+    },
+    {
+        "jersey": "51",
+        "stats": {
+            "avg_size": 0.0004,
+            "duration": 0.17,
+            "in_point": 970,
+            "max_size": 0.0004,
+            "out_point": 970,
+            "prominence_score": 0.0001
+        }
+    },
+    {
+        "jersey": "52",
+        "stats": {
+            "avg_size": 0.0004,
+            "duration": 0.17,
+            "in_point": 980,
+            "max_size": 0.0004,
+            "out_point": 980,
+            "prominence_score": 0.0001
+        }
+    }
+]
