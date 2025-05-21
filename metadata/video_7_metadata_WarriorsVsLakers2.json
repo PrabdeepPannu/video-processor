@@ -1,0 +1,13 @@
+[
+    {
+        "jersey": "3",
+        "stats": {
+            "avg_size": 0.0012,
+            "duration": 1,
+            "in_point": 20,
+            "max_size": 0.0025,
+            "out_point": 50,
+            "prominence_score": 0.0012
+        }
+    }
+]

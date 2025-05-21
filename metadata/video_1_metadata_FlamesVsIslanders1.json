@@ -1,0 +1,156 @@
+[
+    {
+        "jersey": "1",
+        "stats": {
+            "avg_size": 0.0051,
+            "duration": 0.17,
+            "in_point": 590,
+            "max_size": 0.0051,
+            "out_point": 590,
+            "prominence_score": 0.0008
+        }
+    },
+    {
+        "jersey": "2",
+        "stats": {
+            "avg_size": 0.0032,
+            "duration": 0.17,
+            "in_point": 1120,
+            "max_size": 0.0032,
+            "out_point": 1120,
+            "prominence_score": 0.0005
+        }
+    },
+    {
+        "jersey": "3",
+        "stats": {
+            "avg_size": 0.0136,
+            "duration": 0.5,
+            "in_point": 1010,
+            "max_size": 0.0198,
+            "out_point": 1080,
+            "prominence_score": 0.0068
+        }
+    },
+    {
+        "jersey": "7",
+        "stats": {
+            "avg_size": 0.0104,
+            "duration": 0.17,
+            "in_point": 620,
+            "max_size": 0.0104,
+            "out_point": 620,
+            "prominence_score": 0.0017
+        }
+    },
+    {
+        "jersey": "11",
+        "stats": {
+            "avg_size": 0.0034,
+            "duration": 0.17,
+            "in_point": 270,
+            "max_size": 0.0034,
+            "out_point": 270,
+            "prominence_score": 0.0006
+        }
+    },
+    {
+        "jersey": "21",
+        "stats": {
+            "avg_size": 0.0282,
+            "duration": 16.35,
+            "in_point": 190,
+            "max_size": 0.0402,
+            "out_point": 1170,
+            "prominence_score": 0.4609
+        }
+    },
+    {
+        "jersey": "31",
+        "stats": {
+            "avg_size": 0.0332,
+            "duration": 0.17,
+            "in_point": 1070,
+            "max_size": 0.0332,
+            "out_point": 1070,
+            "prominence_score": 0.0055
+        }
+    },
+    {
+        "jersey": "32",
+        "stats": {
+            "avg_size": 0.0405,
+            "duration": 1.67,
+            "in_point": 1150,
+            "max_size": 0.0429,
+            "out_point": 1250,
+            "prominence_score": 0.0675
+        }
+    },
+    {
+        "jersey": "44",
+        "stats": {
+            "avg_size": 0.0027,
+            "duration": 0.33,
+            "in_point": 160,
+            "max_size": 0.0037,
+            "out_point": 960,
+            "prominence_score": 0.0009
+        }
+    },
+    {
+        "jersey": "71",
+        "stats": {
+            "avg_size": 0.0184,
+            "duration": 6.51,
+            "in_point": 520,
+            "max_size": 0.0289,
+            "out_point": 910,
+            "prominence_score": 0.1194
+        }
+    },
+    {
+        "jersey": "76",
+        "stats": {
+            "avg_size": 0.0822,
+            "duration": 0.17,
+            "in_point": 650,
+            "max_size": 0.0822,
+            "out_point": 650,
+            "prominence_score": 0.0137
+        }
+    },
+    {
+        "jersey": "96",
+        "stats": {
+            "avg_size": 0.0049,
+            "duration": 0.17,
+            "in_point": 400,
+            "max_size": 0.0049,
+            "out_point": 400,
+            "prominence_score": 0.0008
+        }
+    },
+    {
+        "jersey": "196",
+        "stats": {
+            "avg_size": 0.0204,
+            "duration": 0.17,
+            "in_point": 390,
+            "max_size": 0.0204,
+            "out_point": 390,
+            "prominence_score": 0.0034
+        }
+    },
+    {
+        "jersey": "9373",
+        "stats": {
+            "avg_size": 0.009,
+            "duration": 0.17,
+            "in_point": 890,
+            "max_size": 0.009,
+            "out_point": 890,
+            "prominence_score": 0.0015
+        }
+    }
+]
